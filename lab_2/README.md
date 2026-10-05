@@ -25,7 +25,9 @@ PC1 (192.168.10.10/24) -- Switch1 -- Router SONiC -- Switch2 -- PC2 (192.168.20.
 3. Соединить: `PC1 -> Switch1 -> Router (Ethernet1) ... Router (Ethernet2) -> Switch2 -> PC2`
 4. Запустить все узлы (`Play`)
 
-(сюда закину скрин топологии)
+<img width="847" height="441" alt="image" src="https://github.com/user-attachments/assets/e0ab9e61-8b5f-413a-95ee-0bb2cf712e66" />
+
+
 
 ### 2. Настройка маршрутизатора SONiC
 
@@ -52,7 +54,8 @@ ip route
 sudo config save -y
 ```
 
-(сюда настройка интерфейсов)
+<img width="477" height="141" alt="image" src="https://github.com/user-attachments/assets/2e9ac721-f1c3-4c9c-bf43-6c37279d436d" />
+
 
 ### 3. Настройка хостов
 
@@ -65,7 +68,8 @@ PC2> ip 192.168.20.10 255.255.255.0 192.168.20.1
 
 Проверить назначение командой `show ip` -- поле `GATEWAY` должно быть заполнено.
 
-(сюда айпи компов)
+<img width="476" height="35" alt="image" src="https://github.com/user-attachments/assets/43ea3b0b-d419-42fe-b5f3-c507504f2e28" />
+
 
 ### 4. Проверка связности
 
@@ -78,5 +82,9 @@ PC1> trace 192.168.20.10
 
 Ожидаемый результат -- успешный ping до собственного шлюза и до удалённого хоста (TTL=63, поскольку пакет проходит через один маршрутизатор), а в trace первым хопом -- адрес `192.168.10.1`.
 
-(сюда пинг и трэйс)
+<img width="478" height="41" alt="image" src="https://github.com/user-attachments/assets/63bc8fbb-afcc-47da-bb7b-7c699e4c6519" />
+
+<img width="472" height="86" alt="image" src="https://github.com/user-attachments/assets/5edbab55-849c-4c90-9d8f-3c95967684d9" />
+
+
 
