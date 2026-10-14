@@ -15,7 +15,8 @@
 
 ## Топология
 
-(скрин 1)
+<img width="985" height="559" alt="image" src="https://github.com/user-attachments/assets/63441d67-81ff-43b0-9869-0f9c834c7012" />
+
 
 | Откуда | Куда | Назначение |
 |---|---|---|
@@ -81,7 +82,8 @@ sudo ss -tlnp | grep -E '6633|6653|8181'
 
 Веб-интерфейс: `http://localhost:8181/index.html` (`admin` / `admin`).
 
-(скрин 2)
+<img width="1280" height="469" alt="image" src="https://github.com/user-attachments/assets/731b984c-8656-41b2-8881-d07f28289e4f" />
+
 
 > Модули ставятся через `featuresBoot`, а не командой `feature:install` из консоли: в Oxygen при установке на лету часть бандлов (openflowplugin, aaa) падает в `Failure`.
 
@@ -118,13 +120,17 @@ sudo ovs-vsctl show
 sudo ovs-ofctl -O OpenFlow13 dump-flows br0
 ```
 
-(скрин 3)
+<img width="826" height="342" alt="image" src="https://github.com/user-attachments/assets/0eaace1d-bb63-4b4a-9538-c02a4883d560" />
 
-(скрин 4)
 
-(скрин 5)
+<img width="811" height="393" alt="image" src="https://github.com/user-attachments/assets/e74d4a01-eeec-4479-9f07-1fa05e9a1ec0" />
 
-(скрин 6)
+
+<img width="895" height="222" alt="image" src="https://github.com/user-attachments/assets/0c138c24-abf2-4dc5-9c2a-303488f10542" />
+
+
+<img width="892" height="223" alt="image" src="https://github.com/user-attachments/assets/df2ff86f-cbf0-4247-92af-be7529708467" />
+
 
 ### 4. Хосты
 
@@ -145,13 +151,15 @@ PC2> save
 curl -s -u admin:admin http://localhost:8181/restconf/operational/opendaylight-inventory:nodes | python3 -m json.tool | grep '"id": "openflow:[0-9]*"'
 ```
 
-(скрин 7)
+<img width="894" height="162" alt="image" src="https://github.com/user-attachments/assets/f8620a4a-008b-4246-83f9-139e14dbb452" />
+
 
 ```bash
 grep -iE "openflow:1|openflow:2" data/log/karaf.log | tail -20
 ```
 
-(скрин 8)
+<img width="900" height="564" alt="image" src="https://github.com/user-attachments/assets/be0988bd-12ec-4eb8-a92b-8bac29b28560" />
+
 
 ### Ping между хостами
 
@@ -159,7 +167,8 @@ grep -iE "openflow:1|openflow:2" data/log/karaf.log | tail -20
 PC1> ping 192.168.1.12
 ```
 
-(скрин 9)
+<img width="777" height="205" alt="image" src="https://github.com/user-attachments/assets/9aa3f082-ce91-49f7-a789-b6fc4fd95598" />
+
 
 ## Управление потоками через RESTCONF
 
@@ -206,11 +215,14 @@ curl -u admin:admin -X PUT -H "Content-Type: application/json" -d @drop-icmp.jso
 curl -s -u admin:admin http://localhost:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:1/flow-node-inventory:table/0/flow/drop-icmp | python3 -m json.tool
 ```
 
-(скрин 10)
+<img width="894" height="595" alt="image" src="https://github.com/user-attachments/assets/b030f13f-6b3c-479e-87e5-db5a54470cc4" />
 
-(Скрин 11)
 
-(скрин 12)
+<img width="435" height="187" alt="image" src="https://github.com/user-attachments/assets/a94fa7b3-a02c-49f9-86ee-10821adaa39d" />
+
+
+<img width="900" height="277" alt="image" src="https://github.com/user-attachments/assets/def58c31-b505-479a-979a-c28af9fbecce" />
+
 
 Удаление:
 
@@ -218,9 +230,11 @@ curl -s -u admin:admin http://localhost:8181/restconf/config/opendaylight-invent
 curl -u admin:admin -X DELETE http://localhost:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:1/flow-node-inventory:table/0/flow/drop-icmp
 ```
 
-(скрин 13)
+<img width="892" height="225" alt="image" src="https://github.com/user-attachments/assets/62b0c5dd-482f-49db-b221-0cd6aefad7b8" />
 
-(скрин 14)
+
+<img width="781" height="210" alt="image" src="https://github.com/user-attachments/assets/2beb4d2e-ba5c-4f04-967c-38fd2434c50e" />
+
 
 ## Запуск после перезагрузки
 
